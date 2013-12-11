@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @vegetable.id %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @vegetable.serial %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vegetable.name %>
+</p>
+
+<p>
+  <strong>R name:</strong>
+  <%= @vegetable.r_name %>
+</p>
+
+<%= link_to 'Edit', edit_vegetable_path(@vegetable) %> |
+<%= link_to 'Back', vegetables_path %>

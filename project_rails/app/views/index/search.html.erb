@@ -1,0 +1,22 @@
+<% if @vegetable %>
+  <div class='col-lg-12' id='search_title'>
+    <%= params[:s] %> ，共 <%= @vegetable.count %> 筆。  
+  </div>
+  <% @vegetable.each do |vegetable| %>
+   <hr>
+    
+     <a  href="/index/<%= vegetable.id %>">
+     <div class='box'>
+      <% if vegetable.r_name !=""%>
+        <%= vegetable.name %>(<%= vegetable.r_name %>)
+      <% else %>
+        <%=vegetable.name%>
+      <% end %>
+     </div>
+     </a>
+   
+  <% end %>
+  <%= will_paginate @vegetable , :params => params %>
+<% else%>
+    <b>請輸入正確數值</b><br>
+<% end %>

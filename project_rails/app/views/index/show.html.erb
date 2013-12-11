@@ -1,0 +1,43 @@
+<% content_for :head do %>
+  <script src="/javascripts/d3/d3.min.js"></script>
+ <style>
+    @import url(/front_end/css/show.css);
+ </style>
+ <script>
+    var target_vegetable_id = <%= raw(@id || "null") %>;
+ </script>
+ <script src='/front_end/js/show.js'></script>
+<% end %>
+<div class='btn-group' id='buttons'>
+  <button type="button"  id='today_price' class="btn btn-default">今日價格</button>
+  <button type="button"  id ='week_change' class="btn btn-default">一週變化</button>
+  <button type="button" id='month_change' class="btn btn-default">月變化統計</button>
+  <button type="button" id='year_change' class="btn btn-default">年變化統計</button>
+</div>
+
+<div id='today' >
+  <h1 >今日價格</h1>
+  <% if @vegetable %>
+   <div id='today_show'>
+  <div  class='col-lg-3 result'>
+      <h3>高價</h3><hr>
+      <p><%= @vegetable.price1 %> 元/斤</p>
+  </div>
+  <div  class='col-lg-3  result'>
+      <h3>平均價</h3><hr>
+      <p><%= @vegetable.price2 %> 元/斤</p>
+  </div>
+  <div class='col-lg-3  result'>
+      <h3>低價</h3><hr>
+      <p><%= @vegetable.price3 %> 元/斤</p>
+     </div>
+    </div>
+<% else %>
+   <div class='elsesection'>
+    很抱歉此種蔬果今日沒有交易
+   </div>
+<% end %>
+</div>
+<div id='week' class='col-lg-offset-4'></div>
+<div id='month_container'></div>
+<div id="container"></div>

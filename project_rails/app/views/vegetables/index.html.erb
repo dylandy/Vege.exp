@@ -1,0 +1,36 @@
+<h1>Listing vegetables</h1>
+<%= link_to 'New Vegetable', new_vegetable_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Serial</th>
+      <th>Name</th>
+      <th>R name</th>
+			<th>kind</th>
+			<th>season</th>
+			<th>form</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vegetables.each do |vegetable| %>
+      <tr>
+        <td><%= vegetable.id %></td>
+        <td><%= vegetable.serial %></td>
+        <td><%= vegetable.name %></td>
+        <td><%= vegetable.r_name %></td>
+        <td><%= vegetable.kind ? Vegetable::KIND[vegetable.kind][0] : '無' %></td>
+        <td><%= vegetable.season ? Vegetable::SEASON[vegetable.season][0] : '無' %></td>
+			  <td><%= vegetable.form ? Vegetable::FORM[vegetable.form][0] : '無' %></td>
+        <td><%= link_to 'Show', vegetable %></td>
+        <td><%= link_to 'Edit', edit_vegetable_path(vegetable) %></td>
+        <td><%= link_to 'Destroy', vegetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,43 @@
+<%= form_for(@vegetable) do |f| %>
+  <% if @vegetable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vegetable.errors.count, "error") %> prohibited this vegetable from being saved:</h2>
+
+      <ul>
+      <% @vegetable.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :serial %><br>
+    <%= f.text_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :r_name %><br>
+    <%= f.text_field :r_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kind %><br>
+    <%= f.select :kind , [["無" , nil]] + Vegetable::KIND %>
+  </div>
+  <div class="field">
+    <%= f.label :season %><br>
+    <%= f.select :season , [["無" , nil]] + Vegetable::SEASON %>
+  </div>
+  <div class="field">
+    <%= f.label :form %><br>
+    <%= f.select :form , [["無" , nil]] + Vegetable::FORM %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

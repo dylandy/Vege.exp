@@ -1,0 +1,17 @@
+body{
+	overflow-x:hidden;
+	z-index:-1;
+}
+.box{
+  height:30em;
+  background-image: url(7ixeg244.jpg);
+	z-index:3;
+}
+.box > h1{
+	background-color:teal;
+	text-align:justify;
+	text-indent:3em;
+	font-size:5em;
+	color:orange;
+}
+

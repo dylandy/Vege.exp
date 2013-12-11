@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+ <!-- <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>-->
+    <meta charset='utf-8'/>
+    <meta content='description' name='vegetable search'/>
+    <meta name='viewport' content='width=device-width; initial-scale=1'/>
+    <meta content='keyword' name='vegetable,search'/>
+    <link href='/front_end/css/bootstrap.min.css' rel='stylesheet'/>
+    <link href='/front_end/css/bootstrap-theme.css' rel='stylesheet'/>
+    <link href="/front_end/css/header.css" rel='stylesheet'/>
+    <link href='/front_end/css/search.css' rel='stylesheet'/>
+    <link rel='shortcut icon' href='/front_end/img/favicon.ico' type='image/vnd.microsoft.icon'/>
+    <script src='/front_end/js/jquery.js'></script>
+    <script src='/front_end/js/bootstrap.min.js'></script>
+    <script src='/front_end/js/nav.js'></script> 
+
+
+  <%= yield :head %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body class='well'>
+<nav class="navbar-inverse navbar" role='navigation'>
+
+        <div class='navbar-header'>
+          <!--小螢幕按鍵 -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href='/' class='navbar-brand'>Vege.exp</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class='nav navbar-nav navbar-right'>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">蔬菜/水果 <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li id= 'vege'><a href='#'>蔬菜</a></li>
+                  <li id = 'fruit'><a href='#'>水果</a></li>
+                  <li id = 'all'><a href='#'>全部</a></li>
+              </ul>
+            </li>
+
+            <li class='dropdown'>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">分類 <b class="caret"></b></a>
+              <ul class='dropdown-menu' id='stage2'>
+                <li class='one' id='sun'><a href='#'>春季產</a></li>
+                <li class='one' id='ka'><a href='#'>夏季產</a></li>
+                <li class='one' id='syu'><a href='#'>秋季產</a></li>
+                <li class='one' id='tou'><a href='#'>冬季產</a></li>
+                <li class='two' id='mush'><a href='#'>蕈類</a></li>
+                <li class='two' id='leaf'><a href='#'>葉菜類</a></li>
+                <li class='two' id='seed'><a href='#'>子實類</a></li>
+                <li class='two' id='rhizome'><a href='#'>根莖類</a></li>
+                <li class='disabled' id='init'><a href="#">請點選蔬菜/水果</a></li>
+                <li class='disabled' id='noneed'><a href='#'>請點選蔬菜/水果</a></li>
+              </ul>
+            </li>
+
+            
+            <%= form_tag "/index/search", :class => "navbar-form navbar-right" , :role => "search" , :method => 'get' do   %>
+             <div class="form-group">
+               <input type="text" class="form-control" placeholder="Search" name='s'>
+                </div>
+             <button type="submit" class="btn btn-default" id='submit-btn'>搜尋</button>
+          <% end %> 
+        
+        </ul>
+      </div> <!--navbar-collapse -->
+     </nav>
+
+    <div class="vlist_layout" style='display:none;'>
+      <ul class="vlist">
+      </ul>
+    </div>
+
+
+<%= yield %>
+
+<footer id='foot'>
+      <p>
+        <small>
+       本網站由 <a href='#'>Vege.exp</a> 製作，依據<a href='#'> *** 授權</a>釋出。
+        </small>
+        </p><br>
+      <p>
+        <small>
+       資料來源：<a href='http://ppt.cc/ZcD3'>臺北農產運銷股份有限公司</a> 提供。
+      </small>
+     </p><br/>
+     <p id='end' class='default'>
+       <a href='http://www.github.com/dylandy'>
+        Github page
+       </a> ·
+       <a href='http://www.github.com/dylandy'>
+       Issue
+       </a>·
+       <a href='#'>
+        Blog
+       </a>·
+       <a href='#'>
+        Facebook
+       </a>
+     </p>
+    </footer>
+</body>
+</html>
