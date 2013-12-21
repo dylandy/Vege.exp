@@ -31,8 +31,11 @@ Vege.exp 嘗試著解決這樣的問題，也期待能夠達成。
 台北市農產運銷股份有限公司（台北市果菜市場）
 
 ##測試
-此專案在 Ubuntu 13.10 (amd64) 環境下測試成功。
+此專案在 
+* Ubuntu 13.10 (amd64) 
+* Linux Mint 15 KDE (amd64)
 
+環境下測試成功。
 ##License
 
 本專案透過 Apache Software License v2.0 釋出
